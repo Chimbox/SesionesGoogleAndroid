@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 const val RC_SIGN_IN = 123
-//const val COD_LOGOUT = 321
+const val COD_LOGOUT = 321
 class MainActivity : AppCompatActivity() {
 
 
@@ -54,9 +54,9 @@ class MainActivity : AppCompatActivity() {
             handleSignInResult(task)
         }
 
-        /*if(requestCode == COD_LOGOUT){
+        if(requestCode == COD_LOGOUT){
             signOut()
-        }*/
+        }
     }
 
     override fun onStart() {
@@ -86,15 +86,15 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this, PrincipalActivity::class.java)
             intent.putExtra("nombre", account.displayName)
             intent.putExtra("email", account.email)
-            startActivity(intent)
+            startActivityForResult(intent, COD_LOGOUT)
         }
     }
 
 
-  /*  private fun signOut() {
+   private fun signOut() {
         mGoogleSignInClient.signOut()
             .addOnCompleteListener(this) {
                 Toast.makeText(this, "Se ha cerrado la sesión", Toast.LENGTH_SHORT).show()
             }
-    }*/
+    }
 }
